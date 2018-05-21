@@ -1,0 +1,52 @@
+<div id="logo"></div>
+
+<div id="user">
+<div id="header"><%= @current_user.first_name.capitalize %></div>
+</div>
+
+<div id="remote-video-container"></div>
+
+<video id="local-video" autoplay></video>
+
+<br>
+
+<button id="join" onclick="handleJoinSession()">
+  Join Room
+</button>
+
+<button id="leave" onclick="handleLeaveSession()">
+  Leave Room
+</button>
+<script>
+window.onload = () => {
+    var user = <%= raw JSON.generate({email: @current_user.email, first_name: @current_user.first_name, last_name: @current_user.last_name, id: @current_user.id}) %>;
+    //initApp(user);
+    console.log(user)
+  localVideo = document.getElementById("local-video");
+  remoteVideoContainer = document.getElementById("remote-video-container");
+};
+
+// Initialize user's own video
+document.onreadystatechange = () => {
+  if (document.readyState === "interactive") {
+//try getting devices!!
+navigator.mediaDevices.enumerateDevices().then((res)=>{console.log(res)})
+
+
+    navigator.mediaDevices
+      .getUserMedia({
+        audio: false,
+        video: true
+      })
+      .then(stream => {
+          
+          console.log('yo',stream)
+        localstream = stream;
+        localVideo.srcObject = stream;
+        localVideo.muted = true;
+      })
+      .catch((e)=>{console.log(e)});
+  }
+};
+
+</script>

@@ -1,0 +1,73 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+ body {
+    background-color: rgb(85, 85, 85);
+    color: rgb(189, 188, 188);
+    margin: 33px;
+    font-family: avenir;
+    font-size: 13px;
+    line-height: 18px;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 40% 40% 30%;
+  }
+  video{
+    grid-column:1 / span 2;
+    grid-row:2 / span 2;
+    width: 100%  !important;
+    height: auto  !important;
+    object-fit: cover;
+  }
+  #video_box{
+    border-radius:50%;
+    width:100px;
+    height:100px;
+  }
+  #logo{
+    position:absolute;
+    grid-column-start:2;
+    background-image: url('./collabr8.png');
+    height:100px;
+    width:200px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    right:30px;
+  }
+  #user{
+    //margin-left:10%;
+    top:0px;
+    grid-column-start:1;
+    grid-row-start:1;
+  }
+  #header{
+    font-size:2em;
+    margin-top:15px;
+    margin-bottom:40px;
+  }
+  #join{
+    grid-column-start:1;
+  }
+  #leave{
+    grid-column-start:2;
+  }
+  button{
+    color:black;
+    background-color:grey;
+    font-family: avenir;
+    font-size:1em;
+    padding-top:4px;
+  }
+ 
